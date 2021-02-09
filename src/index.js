@@ -7,6 +7,7 @@ const liveBoard = document.getElementById("live");
 const levelBoard = document.getElementById("level");
 const jokerLose = new Audio("src/son/joker-lose.mp3");
 const jokerTouch = new Audio ("src/son/coup.mp3");
+const soundLevel = new Audio("src/son/chauve-souris.mp3");
 let levelUp = false;
 let lastHoles;
 let score = 0;
@@ -17,9 +18,6 @@ let holeActive;
 let changeMole;
 
 buttonStart.addEventListener("click", startGame);
-contentHoles.addEventListener("click", wack, false);
-
-
 
 /* La fonction Math.floor(x) renvoie le plus grand entier qui est inférieur ou égal à un nombre  */
 function randomHole(holes) {
@@ -33,6 +31,7 @@ function randomHole(holes) {
 }
 
 function showTheMole() {
+  contentHoles.addEventListener("click", wack, false);
   holeActive = randomHole(holes);
   holeActive.classList.add("active-a-mole");
   if (live <= 0) {
@@ -67,6 +66,7 @@ function startGame() {
 function stopGame(){
   // permet de supprimer le timeout et supprimer l'ajout de la classe active-a-mole
   clearTimeout(changeMole);
+  contentHoles.removeEventListener("click", wack);
 }
 
 function wack(e) {
@@ -74,15 +74,20 @@ function wack(e) {
     live--;
     liveBoard.textContent = live;
     jokerLose.play();
+    if(live === 0){
+      stopGame();
+    }
   } else if (score >= 6) {
     level++;
     levelBoard.textContent = level;
     score = 0;
     levelUp = true;
-  } else {
+    soundLevel.play();
+  } else{
     score++;
     jokerTouch.play();
     e.target.parentNode.classList.remove("active-a-mole");
     scoreBoard.textContent = score;
   }
+  
 }
