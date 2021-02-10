@@ -98,7 +98,9 @@ body {
 }
 
 .text-lose h2{
-  transform: translate(-50%, -23%);
+  position: absolute;
+  top: 18%;
+  left: 30%;
   font-size: 12rem;
   animation: textLoseFinish linear 10s forwards;
   color: #F57F1F;
