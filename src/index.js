@@ -3,7 +3,7 @@ const scoreBoard = document.getElementById("score");
 const holes = document.getElementsByClassName("hole");
 const contentHoles = document.getElementById("container-a-mole");
 const buttonStart = document.getElementById("btn-start");
-const buttonStop = document.getElementsByClassName("btn-stop");
+const buttonPause = document.getElementsByClassName("btn-pause");
 const liveBoard = document.getElementById("live");
 const levelBoard = document.getElementById("level");
 const timeBoard = document.getElementById("timeGame");
@@ -33,7 +33,7 @@ function timer(){
 function decompte(){
   if(timeGame === 0){
     timeBoard.textContent = 0;
-    stopGame();
+    pauseGame();
   }
   else{
     timeBoard.textContent = timeGame;
@@ -79,18 +79,21 @@ function startGame() {
   scoreBoard.textContent = score;
   liveBoard.textContent = live;
   levelBoard.textContent = level;
-  buttonStart.textContent = "Stop";
-  buttonStart.classList.add("btn-stop");
+  buttonStart.textContent = "Pause";
+  buttonStart.classList.add("btn-pause");
   buttonStart.removeEventListener("click", startGame);
   // addEventListener se met sur un élement si j'ai un calsse je dois pécifier a quel niveau je veux le placer ou bouclé sur toutes les classe
-  buttonStop[0].addEventListener("click", stopGame);
+  buttonPause[0].addEventListener("click", pauseGame);
 }
 
-function stopGame(){
+function pauseGame(){
   // permet de supprimer le timeout et supprimer l'ajout de la classe active-a-mole
   clearTimeout(changeMole);
   clearInterval(interval);
+  holeActive.classList.remove("active-a-mole");
   contentHoles.removeEventListener("click", wack);
+  buttonStart.textContent = "Start";
+  buttonStart.addEventListener("click", startGame);
 }
 
 function wack(e) {
@@ -101,7 +104,7 @@ function wack(e) {
     jokerLose.play();
     
     if(live === 0){
-      stopGame();
+      pauseGame();
       lose();
     }
   } else if (score !== 0 && (score % 6) === 0) {

@@ -1,3 +1,7 @@
+*{
+  margin: 0;
+  padding: 0;
+}
 body {
     font-family: sans-serif;
   }
@@ -105,6 +109,19 @@ body {
   animation: textLoseFinish linear 10s forwards;
   color: #F57F1F;
   text-shadow: 2px 2px 6px #4c4c4c;
+}
+footer{
+  padding: 0.5rem 0;
+  background: #4B4D62;
+}
+.by{
+  text-align: center;
+  font-size: 0.75rem;
+  color: #f2f2f2;
+}
+.by a{
+  color: #f2f2f2;
+  text-decoration: none;
 }
 
 @keyframes textLoseDown{
