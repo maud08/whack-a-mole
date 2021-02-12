@@ -81,16 +81,22 @@ header {
   background: rgba(0, 0, 0, 0.8);
   z-index: 2;
 }
-.text-lose {
+.lose-content {
   position: fixed;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  top: 0;
+  flex-flow: column;
+  align-items: center;
+  top: 10%;
   left: 0;
   z-index: 3;
   height: 100%;
   width: 100%;
+}
+.text-lose {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  height: 100%;
 }
 
 .text-lose span {
@@ -115,14 +121,26 @@ header {
   padding: 0;
 }
 
-.text-lose h2 {
-  position: absolute;
-  top: 18%;
-  left: 30%;
+.lose h2 {
   animation: textLoseFinish linear 10s forwards;
   color: #f57f1f;
   text-shadow: 2px 2px 6px #4c4c4c;
 }
+
+#btn-tryAgain {
+  cursor: pointer;
+  animation: textLoseFinish linear 10s forwards;
+  width: 15%;
+  margin: 3rem 0 0 0;
+  padding: 1rem;
+  background: #000000;
+  border: none;
+  color: white;
+  border-radius: 8px 8px 8px 8px;
+  box-shadow: 2px 2px 6px #4c4c4c;
+}
+
+
 footer {
   padding: 0.5rem 0;
   background: #4b4d62;

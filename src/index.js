@@ -17,13 +17,15 @@ let score = 0;
 let live = 5;
 let level = 1;
 let timeGame = 120;
-let timeUpMole;
+let timeUpMole = 5000;
 let holeActive;
 let changeMole;
 let interval;
 
 buttonStart.addEventListener("click", startGame);
 buttonSound.addEventListener("click", soundGame);
+
+
 
 // fonction timer pour lancer le temps du jeu
 function timer(){
@@ -75,7 +77,6 @@ function showTheMole() {
 function startGame() {
   showTheMole();
   timer();
-  timeUpMole = 5000;
   scoreBoard.textContent = score;
   liveBoard.textContent = live;
   levelBoard.textContent = level;
@@ -123,6 +124,7 @@ function wack(e) {
 function lose(){
   app.classList.add("lose");
   let div = document.createElement("div");
+  let divSpan = document.createElement("div");
 
   let span = document.createElement("span");
   let span1 = document.createElement("span");
@@ -133,6 +135,8 @@ function lose(){
 
   let h2Loose = document.createElement("h2");
 
+  let btnTryAgain = document.createElement("button");
+
   let text = document.createTextNode("HA");
   let text1 = document.createTextNode("HA");
   let text2 = document.createTextNode("HA");
@@ -140,18 +144,29 @@ function lose(){
   let text4 = document.createTextNode("HA");
   let text5 = document.createTextNode("HA");
   let textLoose = document.createTextNode("You lose");
+  let texTryAgain = document.createTextNode("Try again !");
 
-  div.classList.add("text-lose");
+  div.classList.add("lose-content");
+  divSpan.classList.add("text-lose");
+  btnTryAgain.id = "btn-tryAgain";
 
-  div.appendChild(span).appendChild(text);
-  div.appendChild(span1).appendChild(text1);
-  div.appendChild(span2).appendChild(text2);
-  div.appendChild(span3).appendChild(text3);
-  div.appendChild(span4).appendChild(text4);
-  div.appendChild(span5).appendChild(text5);
-  div.appendChild(span5).appendChild(text5);
+
+
+  divSpan.appendChild(span).appendChild(text);
+  divSpan.appendChild(span1).appendChild(text1);
+  divSpan.appendChild(span2).appendChild(text2);
+  divSpan.appendChild(span3).appendChild(text3);
+  divSpan.appendChild(span4).appendChild(text4);
+  divSpan.appendChild(span5).appendChild(text5);
+
+
   div.appendChild(h2Loose).appendChild(textLoose);
+  div.appendChild(btnTryAgain).appendChild(texTryAgain);
+  div.appendChild(divSpan);
   app.appendChild(div);
+
+  btnTryAgain.addEventListener("click", tryAgain);
+  
 }
 
 function soundGame(){
@@ -168,6 +183,13 @@ function soundGame(){
     soundLevel.muted = false;
     buttonSound.setAttribute("src","./src/img/sound_on.svg");
   }
+}
+
+function tryAgain() {
+  let loseContent = document.getElementsByClassName("lose-content")[0];
+  startGame();
+  app.classList.remove("lose");
+  app.removeChild(loseContent);
 }
 
 

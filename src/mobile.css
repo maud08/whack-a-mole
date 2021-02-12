@@ -16,7 +16,7 @@
         padding: 0.5rem 0;
     }
     
-    .text-lose h2 {
+    .lose-content h2 {
         font-size: 4rem;
     }
     .text-lose span {
@@ -29,7 +29,7 @@
     header {
         margin: 0 0 8rem 0;
     }
-    .text-lose h2 {
+    .lose-content h2 {
         font-size: 12rem;
     }
     .text-lose span {
