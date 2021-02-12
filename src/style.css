@@ -33,7 +33,7 @@ body {
     z-index: 1;
   }
   
-  .active-a-mole > div {
+  .active-a-mole .mole {
     background: url(/src/img/joker90.png) no-repeat;
     width: 100px;
     height: 100px;

@@ -7,6 +7,7 @@ const buttonStop = document.getElementsByClassName("btn-stop");
 const liveBoard = document.getElementById("live");
 const levelBoard = document.getElementById("level");
 const timeBoard = document.getElementById("timeGame");
+const buttonSound = document.getElementById("sound");
 const jokerLose = new Audio("src/son/joker-lose.mp3");
 const jokerTouch = new Audio ("src/son/coup.mp3");
 const soundLevel = new Audio("src/son/chauve-souris.mp3");
@@ -22,6 +23,7 @@ let changeMole;
 let interval;
 
 buttonStart.addEventListener("click", startGame);
+buttonSound.addEventListener("click", soundGame);
 
 // fonction timer pour lancer le temps du jeu
 function timer(){
@@ -97,6 +99,7 @@ function wack(e) {
     live--;
     liveBoard.textContent = live;
     jokerLose.play();
+    
     if(live === 0){
       stopGame();
       lose();
@@ -112,7 +115,6 @@ function wack(e) {
     e.target.parentNode.classList.remove("active-a-mole");
     scoreBoard.textContent = score;
   }
-  
 }
 
 function lose(){
@@ -148,3 +150,21 @@ function lose(){
   div.appendChild(h2Loose).appendChild(textLoose);
   app.appendChild(div);
 }
+
+function soundGame(){
+  let src = buttonSound.getAttribute("src");
+  if(src === "./src/img/sound_on.svg"){
+    jokerLose.muted = true;
+    jokerTouch.muted = true;
+    soundLevel.muted = true;
+    buttonSound.setAttribute("src","./src/img/sound_off.svg");
+
+  }else{
+    jokerLose.muted = false;
+    jokerTouch.muted = false;
+    soundLevel.muted = false;
+    buttonSound.setAttribute("src","./src/img/sound_on.svg");
+  }
+}
+
+
