@@ -1,0 +1,41 @@
+/*style smartphones et petites tablettes en portrait*/
+@media only screen and (min-width: 320px) and (max-width: 799px){
+    header {
+        margin: 0 0 2rem 0;
+    }
+    .game-start{
+        width: 100%;
+        padding: 1rem 0 2rem 0;
+        order: 1;
+    }
+    .storyBoard {
+        width: 100%;
+        flex-direction: column;
+    }  
+    .storyBoard > div{
+        padding: 0.5rem 0;
+    }
+    
+    .text-lose h2 {
+        font-size: 4rem;
+    }
+    .text-lose span {
+        font-size: 1.5rem;
+        padding: 0 .75rem;
+    }
+}
+/* DESKTOP */
+@media only screen and (min-width: 967px){
+    header {
+        margin: 0 0 8rem 0;
+    }
+    .text-lose h2 {
+        font-size: 12rem;
+    }
+    .text-lose span {
+        font-size: 5rem;
+        padding: 0 10rem;
+    }
+
+
+}

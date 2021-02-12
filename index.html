@@ -5,19 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Whack a mole</title>
-    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="/src/main.css">
 </head>
 <body>
     <div id="app">
       <header>
         <div class="game-start">
+          <img id="sound" src="./src/img/sound_on.svg" alt='button pour activer/désactiver le son' />
           <button id="btn-start">Start</button>
-          <img id="sound" src="./src/img/sound_on.svg" alt='button pour le son' />
         </div>
-        <div><span>Time:</span><span id="timeGame"></span></div>
-        <div><span>Score:</span><span id="score"></span></div>
-        <div class="count-live"><span>Live:</span><span id="live"></span></div>
-        <div><span>Level:</span><span id="level"></span></div>
+        <div class="storyBoard">
+          <div><span>Time:</span><span id="timeGame"></span></div>
+          <div><span>Score:</span><span id="score"></span></div>
+          <div class="count-live"><span>Live:</span><span id="live"></span></div>
+          <div><span>Level:</span><span id="level"></span></div>
+        </div>
       </header>
 
       <div id="content-a-mole">
