@@ -130,7 +130,6 @@ header {
 #btn-tryAgain {
   cursor: pointer;
   animation: textLoseFinish linear 10s forwards;
-  width: 15%;
   margin: 3rem 0 0 0;
   padding: 1rem;
   background: #000000;

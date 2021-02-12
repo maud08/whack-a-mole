@@ -36,6 +36,8 @@
         font-size: 5rem;
         padding: 0 10rem;
     }
-
+    #btn-tryAgain {
+        width: 15%;
+    }
 
 }
