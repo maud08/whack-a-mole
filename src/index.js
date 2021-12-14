@@ -43,7 +43,7 @@ function decompte(){
   timeGame--;
 }
 
-/* La fonction Math.floor(x) renvoie le plus grand entier qui est inférieur ou égal à un nombre  */
+
 function randomHole(holes) {
   let index = Math.floor(Math.random() * holes.length);
     const hole = holes[index];
@@ -83,12 +83,12 @@ function startGame() {
   buttonStart.textContent = "Pause";
   buttonStart.classList.add("btn-pause");
   buttonStart.removeEventListener("click", startGame);
-  // addEventListener se met sur un élement si j'ai un calsse je dois pécifier a quel niveau je veux le placer ou bouclé sur toutes les classe
+ 
   buttonPause[0].addEventListener("click", pauseGame);
 }
 
 function pauseGame(){
-  // permet de supprimer le timeout et supprimer l'ajout de la classe active-a-mole
+ 
   clearTimeout(changeMole);
   clearInterval(interval);
   holeActive.classList.remove("active-a-mole");
